@@ -1,0 +1,371 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.modal {
+  width: min(720px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.header h2 {
+  margin-bottom: 4px;
+  color: var(--text-primary);
+  font-size: 20px;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 7px;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.closeButton:hover:not(:disabled) {
+  background-color: var(--surface-muted);
+  color: var(--text-primary);
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+  padding: 22px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.field > span {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.field strong {
+  color: var(--balance-due);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--tag-border);
+  border-radius: 8px;
+  background-color: var(--surface-muted);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 14px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--border-strong);
+  background-color: var(--surface);
+}
+
+.field select {
+  padding-right: 40px;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.customTypeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.customTypeRow input {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.optionChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.optionChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--tag-border);
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.optionChip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.optionChip button:hover {
+  background: var(--secondary-button-hover);
+  color: var(--text-primary);
+}
+
+.activeDoctor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.activeDoctor strong {
+  color: var(--text-primary);
+}
+
+.section {
+  display: grid;
+  gap: 10px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sectionHeader h3 {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.addRowButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border-strong);
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.addRowButton:hover:not(:disabled) {
+  background: var(--secondary-button-hover);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 140px 32px;
+  gap: 10px;
+  align-items: center;
+}
+
+.paymentRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 120px 140px 32px;
+  gap: 10px;
+  align-items: center;
+}
+
+.rowInput {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid var(--tag-border);
+  border-radius: 8px;
+  background-color: var(--surface-muted);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 13px;
+}
+
+.rowInput:focus {
+  outline: none;
+  border-color: var(--border-strong);
+  background-color: var(--surface);
+}
+
+.removeRowButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--balance-due);
+  cursor: pointer;
+}
+
+.removeRowButton:hover:not(:disabled) {
+  background: var(--surface-muted);
+}
+
+.emptyRows {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.error {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--surface-muted);
+  color: var(--balance-due);
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancelButton,
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancelButton {
+  border: 1px solid var(--border-strong);
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-text);
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: var(--secondary-button-hover);
+}
+
+.submitButton {
+  border: 1px solid transparent;
+  background: var(--primary-button-background);
+  color: var(--primary-button-text);
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--primary-button-hover);
+}
+
+.cancelButton:disabled,
+.submitButton:disabled,
+.closeButton:disabled,
+.addRowButton:disabled,
+.removeRowButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal {
+    max-height: 92vh;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullWidth {
+    grid-column: auto;
+  }
+
+  .row {
+    grid-template-columns: 1fr 100px 32px;
+  }
+
+  .paymentRow {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

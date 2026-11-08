@@ -1,0 +1,178 @@
+.container {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 4px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  min-width: 0;
+  transition: background-color 0.15s ease;
+}
+
+.triggerCollapsed {
+  justify-content: center;
+  padding: 6px;
+}
+
+.trigger:hover {
+  background: var(--sidebar-item-hover);
+}
+
+.triggerInner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  animation: profileFadeIn 0.2s ease;
+}
+
+@keyframes profileFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.triggerText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.triggerName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.triggerRole {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.menu {
+  position: absolute;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+  padding: 8px;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  transform-origin: bottom center;
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.menuOpen {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.menuUpward {
+  bottom: calc(100% + 8px);
+  left: 0;
+}
+
+/* Docked to match the sidebar's own width so the popup reads as part of the
+   same column instead of a floating card that spills into the content area. */
+.menuInline {
+  right: 0;
+  width: auto;
+}
+
+/* When the rail is collapsed to icons there isn't room for a readable list,
+   so this one is allowed to float wider, next to the trigger. */
+.menuFlyout {
+  width: 240px;
+  max-width: calc(100vw - 32px);
+}
+
+.menuHeader {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 6px 8px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  min-width: 0;
+  transition: background-color 0.15s ease;
+}
+
+.item:hover {
+  background: var(--sidebar-item-hover);
+}
+
+.itemActive {
+  background: var(--surface-muted);
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.itemName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemRole {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.check {
+  color: var(--text-link);
+  flex-shrink: 0;
+}

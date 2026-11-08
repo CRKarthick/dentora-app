@@ -1,0 +1,48 @@
+{
+  "name": "dentora-app",
+  "version": "0.8.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test:database": "node --test electron/database.test.cjs",
+    "build:web": "next build",
+    "desktop": "npm run build:web && electron .",
+    "dist": "npm run build:web && electron-builder"
+  },
+  "dependencies": {
+    "lucide-react": "^1.38.0",
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "electron": "^44.0.0",
+    "electron-builder": "^26.15.3",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.3",
+    "typescript": "^5"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.dentora.patientrecords",
+    "productName": "Dentora Patient Records",
+    "win": {
+      "target": "portable"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "electron/**/*",
+      "out/**/*",
+      "package.json"
+    ]
+  }
+}

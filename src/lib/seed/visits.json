@@ -1,0 +1,56 @@
+[
+  {
+    "id": "visit-priya-1",
+    "patientId": "test-priya-nair",
+    "date": "2026-08-30",
+    "type": ["checkup"],
+    "status": "Paid",
+    "treatments": [
+      { "name": "Dental Cleaning", "price": 1200 },
+      { "name": "Oral Examination", "price": 500 }
+    ],
+    "notes": "Routine cleaning completed. No cavities detected."
+  },
+  {
+    "id": "visit-rohan-1",
+    "patientId": "test-rohan-mehta",
+    "date": "2026-08-27",
+    "type": ["treatment"],
+    "status": "Partial",
+    "treatments": [{ "name": "Root Canal Treatment", "price": 9000 }],
+    "notes": "First sitting completed. Crown fitting scheduled for the next visit."
+  },
+  {
+    "id": "visit-ananya-1",
+    "patientId": "test-ananya-iyer",
+    "date": "2026-08-24",
+    "type": ["consultation"],
+    "status": "Pending",
+    "treatments": [
+      { "name": "Orthodontic Assessment", "price": 1500 },
+      { "name": "Braces Treatment Plan", "price": 16500 }
+    ],
+    "notes": "Treatment plan discussed. Patient will confirm the braces start date."
+  },
+  {
+    "id": "visit-vikram-1",
+    "patientId": "test-vikram-singh",
+    "date": "2026-08-18",
+    "type": ["treatment"],
+    "status": "Paid",
+    "treatments": [{ "name": "Dental Implant", "price": 28000 }],
+    "notes": "Implant placement completed. Credit retained for the review appointment."
+  },
+  {
+    "id": "visit-meera-1",
+    "patientId": "test-meera-krishnan",
+    "date": "2026-09-01",
+    "type": ["emergency"],
+    "status": "Pending",
+    "treatments": [
+      { "name": "Emergency Consultation", "price": 500 },
+      { "name": "Tooth Extraction", "price": 2000 }
+    ],
+    "notes": "Pain managed and extraction completed. Review advised after seven days."
+  }
+]

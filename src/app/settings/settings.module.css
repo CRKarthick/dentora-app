@@ -1,0 +1,544 @@
+.page {
+  display: grid;
+  gap: 20px;
+  /* Grid items default to `min-width: auto`; without this the cards can be
+     sized by their content and overflow the viewport instead of shrinking. */
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.header h1 {
+  font-size: 26px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.resetAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-text);
+  border: 1px solid var(--border-strong);
+  white-space: nowrap;
+}
+
+.resetAllButton:hover:not(:disabled) {
+  background: var(--secondary-button-hover);
+}
+
+.resetAllButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 0;
+}
+
+.cardHeader {
+  margin-bottom: 16px;
+}
+
+.cardHeader h2 {
+  font-size: 17px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.cardHeader p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.modeRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.modeButton:hover {
+  background: var(--secondary-button-hover);
+}
+
+.modeButtonActive {
+  background: var(--primary-button-background);
+  color: var(--primary-button-text);
+  border-color: var(--primary-button-background);
+}
+
+.modeButtonActive:hover {
+  background: var(--primary-button-hover);
+}
+
+.group {
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.group:first-of-type {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
+}
+
+.groupHeader {
+  margin-bottom: 12px;
+}
+
+.groupHeader h3 {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.groupHeader span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.tokenGrid {
+  display: grid;
+  /* `min(260px, 100%)` keeps columns from forcing horizontal overflow
+     once the available width drops below the preferred column size. */
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: 14px;
+}
+
+.token {
+  display: grid;
+  gap: 6px;
+  /* Grid items default to `min-width: auto`, which lets their contents
+     push past the column edge and overlap the neighbouring control. */
+  min-width: 0;
+}
+
+.tokenLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 0;
+  /* Long token names shouldn't widen the grid column. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.customDot {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--text-link);
+}
+
+.tokenControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.colorInput {
+  width: 40px;
+  height: 36px;
+  min-width: 40px;
+  /* Without this, flex shrinks the swatch below its fixed width and the
+     following controls slide over it. */
+  flex-shrink: 0;
+  padding: 2px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.hexInput {
+  flex: 1 1 0;
+  /* Text inputs have an intrinsic default width (~170px) that would otherwise
+     stop the row from shrinking on narrow screens. */
+  min-width: 0;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--tag-border);
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+}
+
+.hexInput:focus {
+  outline: none;
+  border-color: var(--border-strong);
+}
+
+.resetButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  /* Keeps the button at its full size instead of being squashed and
+     overflowing into the next token's controls. */
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-text);
+  cursor: pointer;
+}
+
+.resetButton:hover:not(:disabled) {
+  background: var(--secondary-button-hover);
+}
+
+.resetButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.optionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.emptyOptions {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.optionChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--tag-border);
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.optionChip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.optionChip button:hover {
+  background: var(--secondary-button-hover);
+  color: var(--text-primary);
+}
+
+.optionForm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.optionForm input {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--tag-border);
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.optionForm input:focus {
+  outline: none;
+  border-color: var(--border-strong);
+}
+
+.optionAddButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-text);
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.optionAddButton:hover {
+  background: var(--secondary-button-hover);
+}
+
+.tabBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+}
+
+.tabButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tabButton:hover {
+  background: var(--surface-muted);
+  color: var(--text-primary);
+}
+
+.tabButtonActive {
+  color: var(--text-primary);
+  background: var(--surface-muted);
+  box-shadow: inset 0 -2px 0 var(--text-link);
+}
+
+.profileList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  min-width: 0;
+  padding: 2px;
+}
+
+.profileRow:hover {
+  background: var(--surface-muted);
+}
+
+.profileRowActive {
+  background: var(--surface-muted);
+}
+
+.profileItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  min-width: 0;
+}
+
+.profileConfirmText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.profileName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileRole {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.activeCheck {
+  color: var(--text-link);
+  flex-shrink: 0;
+  margin: 0 8px 0 4px;
+}
+
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.profileField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.profileField > span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.profileField input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--tag-border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.profileField input:focus {
+  outline: none;
+  border-color: var(--border-strong);
+}
+
+.photoRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.photoActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+/* The styled button drives the picker instead of the native file input. */
+.fileInput {
+  display: none;
+}
+
+.profileFormActions {
+  display: flex;
+  gap: 8px;
+}
+
+.profileConfirm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.profileConfirmRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  min-width: 0;
+}
+
+.error {
+  font-size: 12px;
+  color: var(--balance-due);
+}
+
+.deleteConfirmButton {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--balance-due);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.deleteConfirmButton:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.deleteConfirmButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+  }
+
+  .resetAllButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modeButton {
+    flex: 1;
+    justify-content: center;
+    padding: 12px 14px;
+  }
+}

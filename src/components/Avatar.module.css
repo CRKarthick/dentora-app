@@ -1,0 +1,15 @@
+.avatar {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--avatar-background);
+  color: var(--avatar-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.photo {
+  object-fit: cover;
+}

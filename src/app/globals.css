@@ -1,0 +1,91 @@
+/*
+ * Default (light) theme tokens.
+ *
+ * These mirror `lightTheme` in src/lib/theme.ts. They are declared here so the
+ * very first paint is already themed; the ThemeProvider then overwrites them at
+ * runtime with the palette saved in the local database.
+ */
+:root {
+  --app-background: #f7f8fa;
+  --surface: #ffffff;
+  --surface-muted: #f7f7f8;
+  --border: #eaeaea;
+  --border-strong: #d9d9d9;
+
+  --text-primary: #111111;
+  --text-secondary: #6b6b6b;
+  --text-muted: #8a8a8a;
+  --text-link: #2266d7;
+
+  --sidebar-background: #ffffff;
+  --sidebar-border: #eaeaea;
+  --sidebar-item-text: #4b4b4b;
+  --sidebar-item-hover: #f5f5f5;
+  --sidebar-active-background: #111111;
+  --sidebar-active-text: #ffffff;
+
+  --primary-button-background: #111111;
+  --primary-button-text: #ffffff;
+  --primary-button-hover: #262626;
+  --secondary-button-background: #ffffff;
+  --secondary-button-text: #111111;
+  --secondary-button-hover: #f5f5f5;
+
+  --avatar-background: #eef0f3;
+  --avatar-text: #444444;
+  --tag-background: #fafafa;
+  --tag-text: #555555;
+  --tag-border: #e2e2e2;
+
+  --balance-due: #d33b3b;
+  --balance-credit: #1f9254;
+  --balance-zero: #9a9a9a;
+
+  --visit-paid-background: #e8f7ee;
+  --visit-paid-text: #1f9254;
+  --visit-paid-border: #bfe6cf;
+  --visit-partial-background: #fff6e0;
+  --visit-partial-text: #b7791f;
+  --visit-partial-border: #f0d998;
+  --visit-pending-background: #fdeaea;
+  --visit-pending-text: #c53030;
+  --visit-pending-border: #f3c6c6;
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  /* The shell owns scrolling (in .main), so the page itself must not scroll —
+     otherwise the sidebar would be carried up with the content. */
+  height: 100%;
+  overflow: hidden;
+  color: var(--text-primary);
+  background: var(--app-background);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+select:not([multiple]) {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' stroke='%236b6b6b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+}

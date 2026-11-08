@@ -1,0 +1,14 @@
+[
+  {
+    "id": "doctor-1",
+    "name": "Dr. Karthick",
+    "initials": "DR",
+    "role": "Admin"
+  },
+  {
+    "id": "doctor-2",
+    "name": "Dr. Meera Nair",
+    "initials": "MN",
+    "role": "Orthodontist"
+  }
+]

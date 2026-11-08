@@ -1,0 +1,23 @@
+.shell {
+  display: flex;
+  /* Lock the shell to the viewport so the sidebar never moves; the content
+     column owns the scrollbar instead of the page. */
+  height: 100vh;
+  overflow: hidden;
+  background: var(--app-background);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 28px 32px 40px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

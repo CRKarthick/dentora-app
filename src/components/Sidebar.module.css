@@ -1,0 +1,173 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  /* `sticky` let the sidebar drift with page scroll before latching. As a
+     flex child of the fixed-height shell it simply never scrolls. */
+  position: relative;
+  top: 0;
+  flex-shrink: 0;
+  background: var(--sidebar-background);
+  border-right: 1px solid var(--sidebar-border);
+  padding: 20px 16px;
+  transition: width 0.2s ease, min-width 0.2s ease, padding 0.2s ease,
+    background-color 0.2s ease, border-color 0.2s ease;
+  overflow: visible;
+}
+
+.sidebarCollapsed {
+  width: 76px;
+  min-width: 76px;
+  padding: 20px 12px;
+}
+
+.sidebarCollapsed .brand {
+  justify-content: center;
+  padding: 4px 0 20px;
+}
+
+.sidebarCollapsed .navItem {
+  justify-content: center;
+  padding: 10px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 20px;
+}
+
+.brandText {
+  flex: 1;
+  min-width: 0;
+}
+
+.logoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.sidebarCollapsed .logoButton:not(:disabled) {
+  cursor: pointer;
+}
+
+.logoMark {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 9px;
+  background: var(--sidebar-active-background);
+  position: relative;
+}
+
+.logoMark::after {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 4px;
+  background: var(--sidebar-active-text);
+}
+
+.brandName {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.brandSubtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.collapseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.collapseButton:hover:not(:disabled) {
+  background: var(--sidebar-item-hover);
+  color: var(--text-primary);
+}
+
+.collapseButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sidebarCollapsed .collapseButton {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  padding-top: 8px;
+  /* If nav items ever outgrow the rail, scroll them here rather than
+     letting the sidebar itself grow past the viewport. */
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--sidebar-item-text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.navItem:hover {
+  background: var(--sidebar-item-hover);
+}
+
+.navItemActive {
+  background: var(--sidebar-active-background);
+  color: var(--sidebar-active-text);
+}
+
+.navItemActive:hover {
+  background: var(--sidebar-active-background);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--sidebar-border);
+  flex-shrink: 0;
+}
+
+.date {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 0 4px;
+}
